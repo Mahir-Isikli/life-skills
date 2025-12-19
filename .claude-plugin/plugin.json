@@ -1,0 +1,9 @@
+{
+  "name": "life-skills",
+  "description": "Professional document creation skills including resumes and cover letters with first-principles thinking, LaTeX formatting, and iterative visual refinement",
+  "version": "1.0.0",
+  "author": {
+    "name": "Mahir Isikli",
+    "email": "isikli.mahir@gmail.com"
+  }
+}

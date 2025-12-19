@@ -1,0 +1,15 @@
+{
+  "name": "life-skills-marketplace",
+  "owner": {
+    "name": "Mahir Isikli",
+    "email": "isikli.mahir@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "life-skills",
+      "source": ".",
+      "description": "Professional document creation skills including resumes and cover letters with first-principles thinking, LaTeX formatting, and iterative visual refinement",
+      "version": "1.0.0"
+    }
+  ]
+}

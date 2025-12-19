@@ -1,0 +1,136 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[left=0.48in, right=0.48in, top=0.35in, bottom=0.35in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{setspace}
+
+% Colors
+\definecolor{sectioncolor}{RGB}{20, 45, 75}
+\definecolor{textdark}{RGB}{30, 30, 30}
+\definecolor{textmid}{RGB}{85, 85, 85}
+
+% Modern font
+\setmainfont{Helvetica Neue}[
+  UprightFont = *,
+  BoldFont = * Bold,
+  ItalicFont = * Italic
+]
+
+\pagestyle{empty}
+\hypersetup{colorlinks=true, linkcolor=sectioncolor, urlcolor=sectioncolor}
+
+% Section formatting
+\titleformat{\section}{\color{sectioncolor}\fontsize{10}{12}\selectfont\bfseries\uppercase}{}{0em}{}[\color{sectioncolor!50}\titlerule]
+\titlespacing*{\section}{0pt}{8pt}{3pt}
+
+% Tight bullet lists
+\setlist[itemize]{leftmargin=0.9em, itemsep=1pt, parsep=0pt, topsep=1.5pt, label={\color{sectioncolor}\small\textbullet}}
+
+\setstretch{1.03}
+
+\begin{document}
+
+\color{textdark}
+
+\begin{center}
+{\fontsize{24}{27}\selectfont\bfseries JOHN DOE}\\[5pt]
+{\fontsize{9}{11}\selectfont San Francisco, CA \enspace\textbar\enspace john@doe.dev \enspace\textbar\enspace +1 555 123 4567}\\[2pt]
+{\fontsize{9}{11}\selectfont \href{https://linkedin.com/in/johndoe}{linkedin.com/in/johndoe} \enspace\textbar\enspace \href{https://github.com/johndoe}{github.com/johndoe} \enspace\textbar\enspace \href{https://x.com/johndoe}{x.com/johndoe}}
+\end{center}
+
+\vspace{4pt}
+
+\section{Experience}
+
+\noindent{\bfseries Stripe} \textbar{} Senior Software Engineer \hfill San Francisco, CA\\[-3pt]
+{\color{textmid}\fontsize{8.5}{10}\selectfont Payments Infrastructure $\cdot$ Series I} \hfill {\color{textmid}\fontsize{8.5}{10}\selectfont Jan 2022 -- Present}
+\begin{itemize}
+\item Built real-time fraud detection pipeline processing 50M+ transactions/day, reducing chargebacks by 23\%
+\item Architected payments API serving 100K+ merchants, improving latency p99 from 800ms to 120ms
+\item Led migration of legacy billing to event-driven architecture, eliminating \$2M/year in manual reconciliation
+\item Mentored 3 junior engineers through structured 1:1s and code review, all promoted within 12 months
+\end{itemize}
+
+\vspace{2pt}
+\noindent{\bfseries Plaid} \textbar{} Software Engineer \hfill San Francisco, CA\\[-3pt]
+{\color{textmid}\fontsize{8.5}{10}\selectfont Data Infrastructure Team} \hfill {\color{textmid}\fontsize{8.5}{10}\selectfont Jun 2020 -- Dec 2021}
+\begin{itemize}
+\item Shipped bank connection SDK used by 5,000+ fintech apps, handling 10M+ daily API calls
+\item Reduced data sync latency by 60\% through custom caching layer and connection pooling
+\item Built observability dashboard tracking 200+ service health metrics across 3 data centers
+\end{itemize}
+
+\vspace{2pt}
+\noindent{\bfseries Meta} \textbar{} Software Engineering Intern \hfill Menlo Park, CA\\[-3pt]
+{\color{textmid}\fontsize{8.5}{10}\selectfont Ads Ranking Team} \hfill {\color{textmid}\fontsize{8.5}{10}\selectfont Summer 2019}
+\begin{itemize}
+\item Built A/B testing framework for ads ranking models, adopted by 4 teams across the org
+\item Improved CTR prediction accuracy by 3.2\% through feature engineering on user engagement data
+\end{itemize}
+
+\vspace{2pt}
+\noindent{\bfseries Google} \textbar{} Software Engineering Intern \hfill Mountain View, CA\\[-3pt]
+{\color{textmid}\fontsize{8.5}{10}\selectfont Cloud Infrastructure} \hfill {\color{textmid}\fontsize{8.5}{10}\selectfont Summer 2018}
+\begin{itemize}
+\item Developed autoscaling algorithm for Kubernetes clusters, reducing cloud costs by 15\%
+\item Shipped internal CLI tool for container debugging, used by 500+ engineers daily
+\end{itemize}
+
+\section{Projects \& Speaking}
+
+\noindent{\bfseries Open Source} \hfill {\color{textmid}\fontsize{8.5}{10}\selectfont 2019 -- Present}
+\begin{itemize}
+\item Core contributor to FastAPI -- added WebSocket support and async middleware (2K+ stars on PRs)
+\item Built \href{https://github.com/johndoe/fastcache}{fastcache}: Redis caching library for Python with 500+ GitHub stars
+\end{itemize}
+
+\vspace{2pt}
+\noindent{\bfseries AI Hackathon SF} \textbar{} Winner \hfill {\color{textmid}\fontsize{8.5}{10}\selectfont 2023}
+\begin{itemize}
+\item Built voice-controlled expense tracker using GPT-4 and Plaid API. Won vs 80+ teams
+\end{itemize}
+
+\vspace{2pt}
+\noindent{\bfseries ETHGlobal SF} \textbar{} Finalist \hfill {\color{textmid}\fontsize{8.5}{10}\selectfont 2022}
+\begin{itemize}
+\item Built decentralized identity verification system using zero-knowledge proofs. Top 10 of 200+ teams
+\end{itemize}
+
+\vspace{2pt}
+\noindent{\bfseries PyCon US} \textbar{} Speaker \hfill {\color{textmid}\fontsize{8.5}{10}\selectfont 2022}
+\begin{itemize}
+\item Delivered talk on async Python patterns to 300+ attendees, slides viewed 15K+ times
+\end{itemize}
+
+\section{Skills}
+
+\noindent{\bfseries Languages:} Python, TypeScript, Go, Rust, SQL, Java\\[1.5pt]
+{\bfseries Infrastructure:} AWS, GCP, Kubernetes, Terraform, Docker, Redis, Kafka, PostgreSQL\\[1.5pt]
+{\bfseries Frameworks:} FastAPI, Next.js, React, gRPC, GraphQL
+
+\section{Education}
+
+\noindent{\bfseries Stanford University} \hfill Stanford, CA\\[-3pt]
+M.S. Computer Science \enspace$\cdot$\enspace Specialization: Systems \hfill {\color{textmid}\fontsize{8.5}{10}\selectfont 2020 -- 2022}
+
+\vspace{2pt}
+\noindent{\bfseries Stanford University} \hfill Stanford, CA\\[-3pt]
+B.S. Computer Science \enspace$\cdot$\enspace GPA: 3.8 \enspace$\cdot$\enspace Dean's List \hfill {\color{textmid}\fontsize{8.5}{10}\selectfont 2016 -- 2020}
+
+\section{Leadership}
+
+\noindent{\bfseries Stanford ACM} \textbar{} President \hfill {\color{textmid}\fontsize{8.5}{10}\selectfont 2019 -- 2020}\\[-3pt]
+Led 50-member org \enspace$\cdot$\enspace 20+ tech talks \enspace$\cdot$\enspace Grew membership 40\%
+
+\vspace{2pt}
+\noindent{\bfseries CS 106A} \textbar{} Teaching Assistant \hfill {\color{textmid}\fontsize{8.5}{10}\selectfont 2018 -- 2019}\\[-3pt]
+Taught intro programming to 200+ students \enspace$\cdot$\enspace Rated 4.8/5.0
+
+\vspace{2pt}
+\noindent{\bfseries TreeHacks} \textbar{} Lead Organizer \hfill {\color{textmid}\fontsize{8.5}{10}\selectfont 2019}\\[-3pt]
+Stanford's largest hackathon \enspace$\cdot$\enspace 1,500+ hackers \enspace$\cdot$\enspace Raised \$200K in sponsorships
+
+\end{document}
