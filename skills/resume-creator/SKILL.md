@@ -1,11 +1,11 @@
 ---
 name: resume-creator
-description: Create professional resumes using first-principles thinking, company research, LaTeX Harvard-style formatting, and iterative visual refinement. Use when the user wants to create, update, or optimize a resume/CV for a specific job, company, or career goal.
+description: Create professional resumes using first-principles thinking, Google XYZ format, company research, LaTeX Harvard-style formatting, and iterative visual refinement. Use when the user wants to create, update, or optimize a resume/CV for a specific job, company, or career goal.
 ---
 
 # Resume Creator
 
-A comprehensive resume creation skill that uses first-principles thinking, web research, and iterative visual refinement to craft tailored, professional resumes.
+A comprehensive resume creation skill that uses first-principles thinking, Google XYZ format, web research, and iterative visual refinement to craft tailored, professional resumes.
 
 ## When to Use This Skill
 
@@ -22,6 +22,7 @@ A comprehensive resume creation skill that uses first-principles thinking, web r
 1. **Read existing materials** (if available):
    - Existing resume (PDF, Word, or text)
    - LinkedIn profile screenshots (Claude cannot directly access LinkedIn URLs)
+   - LinkedIn posts for achievements and speaking engagements
    - Portfolio or personal website
 
 2. **Understand the target**:
@@ -35,24 +36,52 @@ A comprehensive resume creation skill that uses first-principles thinking, web r
    - Tech stack and engineering practices
    - Recent news, funding, products
    - What they look for in candidates
+   - Company AUM/size/metrics for context
    - Example searches:
      - "{company} engineering blog hiring"
      - "{company} careers culture values"
      - "{role} at {company} interview what they look for"
+     - "{company} AUM assets under management" (for finance)
 
 4. **Gather missing information** by asking the user:
    - Recent experience not on resume
    - Specific achievements with metrics
    - Skills and technologies used
    - Projects and speaking engagements
+   - Time spent on projects (for speed metrics)
+   - Client details (AUM, size, industry)
 
-### Phase 2: First-Principles Analysis
+### Phase 2: Google XYZ Format Analysis
+
+**The XYZ Formula**: "Accomplished [X] as measured by [Y] by doing [Z]"
+
+- **X** = Achievement/outcome (action verb: Built, Architected, Shipped, Led)
+- **Y** = Quantifiable metric (%, time, money, users, accuracy)
+- **Z** = How you did it (method, technology, approach)
+
+Before writing, analyze each bullet:
+
+| Bullet | X (What) | Y (Metric) | Z (How) | Score |
+|--------|----------|------------|---------|-------|
+| Example | Built connector | 2 weeks, 1000s docs | Delta API, Redis | 3/3 ✓ |
+
+**Target: 100% of bullets should score 3/3**
+
+Common metrics to extract from user:
+- Time to build ("in 2 weeks", "in 1 week")
+- Accuracy improvements ("125% improvement", "90% accuracy", "<3% error rate")
+- Scale ("1000s of docs", "400+ rounds", "90+ companies")
+- Cost savings ("reducing time from hours to minutes", "50% faster")
+- Client context ("$100B+ AUM client", "Fortune 500")
+- Audience size ("150+ builders", "100+ attendees")
+
+### Phase 3: First-Principles Analysis
 
 Before writing, analyze from first principles:
 
 1. **Research what hiring managers look for**:
    - Web search: "{role} resume what hiring managers look for 2024"
-   - Web search: "Paul Graham hiring engineers startups" (for startup roles)
+   - Web search: "Google XYZ resume format"
    - Understand the <8 second resume scan reality
 
 2. **Alignment analysis**:
@@ -61,27 +90,41 @@ Before writing, analyze from first principles:
 
 3. **Paul Graham / YC style considerations** (for startup roles):
    - Lead with what you BUILT, not job titles
-   - Show speed of execution ("shipped in X weeks")
+   - Show speed of execution ("shipped in X weeks", "built in 2 weeks")
    - Quantify everything (%, numbers, scale)
-   - Builder tone: "Built", "Shipped", "Won" not "Responsible for"
+   - Builder tone: "Built", "Shipped", "Architected", "Won" not "Responsible for"
    - Remove corporate buzzwords
 
-### Phase 3: LaTeX Resume Creation
+4. **Avoid redundancy**:
+   - Check if metrics in bullets duplicate header/subheader info
+   - Example: Don't say "Fortune 500 clients" in bullet if header says "Serving Fortune 500 clients"
+
+### Phase 4: LaTeX Resume Creation
 
 Use the Harvard-style LaTeX template with:
 - Clean header (name, location, contact, links)
 - No colored header bars - clean white background
 - Section order: Experience → Projects & Speaking → Skills → Education → Leadership
 - € symbol for currencies
-- 1 page maximum
+- 1 page maximum (critical)
 
 Key formatting:
 - Font: Helvetica Neue (or similar sans-serif)
-- Colors: Navy blue (#14-2D-4B) for sections
+- Colors: Navy blue (#14-2D-4B / RGB 20,45,75) for sections
 - Margins: ~0.5 inches
 - Line spacing: 1.05
+- Use `\setstretch{1.05}` for readability
 
-### Phase 4: Iterative Visual Refinement
+**Punctuation guidelines**:
+- Use commas or semicolons to connect clauses, NOT em dashes (--)
+- Em dashes (--) only for date ranges in headers (e.g., "Sept 2025 -- Present")
+- Use semicolons to separate distinct achievements in one bullet
+
+**Link formatting**:
+- Add `[link]` in small navy text next to items with LinkedIn/external proof
+- Format: `{\color{sectioncolor}\footnotesize[\href{URL}{link}]}`
+
+### Phase 5: Iterative Visual Refinement
 
 **Critical**: After creating the LaTeX file, iterate visually:
 
@@ -90,45 +133,53 @@ Key formatting:
    xelatex -interaction=nonstopmode resume.tex
    ```
 
-2. **Convert to high-resolution image**:
-   ```bash
-   pdftoppm -png -r 300 resume.pdf resume_preview
-   ```
+2. **Check page count**: Must be exactly 1 page
+   - If 2 pages: reduce spacing, tighten text, combine bullets
+   - Adjust `\titlespacing*{\section}{0pt}{6pt}{2pt}` if needed
+   - Adjust `\setlist[itemize]{itemsep=1pt, parsep=0pt, topsep=1pt}`
 
-3. **Read the image** using the Read tool to visually inspect
-
-4. **Check for issues**:
+3. **Check for issues**:
    - Does it fit on 1 page?
    - Is spacing balanced?
    - Are there overflow issues?
    - Is typography clean?
+   - Any redundant information?
 
-5. **Iterate** until perfect
+4. **Iterate** until perfect
 
-### Phase 5: Final Delivery
+### Phase 6: Final Delivery
 
 1. Save final PDF: `Resume_[Name]_[Role]_[Year].pdf`
-2. Keep .tex source file
-3. Clean up temp files
+2. Keep .tex source file with same naming
+3. Clean up temp files (.aux, .log, .out)
 4. Open PDF for user
 
 ## Content Guidelines
 
-### Experience Bullets
+### Experience Bullets - XYZ Examples
 
-**Good** (action + metric + result):
-- Built real-time fraud detection pipeline processing 50M+ transactions/day, reducing chargebacks by 23%
-- Shipped MVP in 4 weeks, reduced costs 50% for pilot customers
+**Strong XYZ bullets**:
+- Built SharePoint connector in 2 weeks enabling auto-indexing of 1000s of enterprise docs, reducing admin setup from hours to minutes
+- Architected Snowflake sub-agent for NL-to-SQL, improving query accuracy by 125%; embedded at $100B+ AUM client, drove 4+ validation cycles
+- Built agentic funding extraction with <3% error rate on 400+ rounds, validated against hand-labeled data and proprietary providers
+- Delivered DSPy live optimization talk to 150+ builders, featured in global newsletter (50K+ subscribers)
 
-**Bad** (vague/passive):
-- Responsible for platform development
-- Worked on various projects
+**Weak bullets to avoid**:
+- Responsible for platform development (no metric, no how)
+- Worked on various projects (vague)
+- Built connector using Redis (no metric, no outcome)
+
+### Combining Related Bullets
+
+When two bullets are related, combine them:
+- Before: "Architected Snowflake agent" + "Embedded as Field Engineer at client"
+- After: "Architected Snowflake sub-agent for NL-to-SQL, improving accuracy by 125%; embedded at $100B+ AUM client, drove 4+ validation cycles"
 
 ### Skills Organization
 
-- **AI/ML**: LangChain, LangGraph, DSPy, RAG, Vector DBs
-- **Full-Stack**: Next.js, React, TypeScript, Node.js, Python
-- **Data & Infra**: Postgres, Redis, Docker, GCP, Azure
+- **AI/ML**: LangChain, LangGraph, DSPy, MCP, OpenAI/Anthropic/Google APIs, RAG, Vector DBs, Embeddings
+- **Full-Stack**: Next.js, React, TypeScript, Tailwind, Node.js, Python, REST APIs
+- **Data & Infra**: Postgres, Snowflake, Redis, Microsoft Graph, GCP, Azure, Docker
 - **Languages**: German (native), English (fluent)
 
 ## How Users Should Use This Skill
@@ -138,10 +189,16 @@ For best results, provide:
 2. LinkedIn screenshots (profile, experience, posts) — Claude cannot directly access LinkedIn URLs
 3. The job posting or target company/role
 4. Any recent achievements not on your resume
+5. **Metrics**: time spent, accuracy numbers, scale, client details
 
 Example:
 ```
-Help me update my resume for the Product Engineer role at Langdock.
+Help me update my resume for the AI Engineer role at [Company].
 Here's my current resume: [attach PDF]
-LinkedIn: [attach screenshots of profile and experience]
+LinkedIn posts: [attach screenshots]
+
+Some context:
+- Built the SharePoint connector in 2 weeks
+- Client has $100B+ AUM
+- Achieved 90% accuracy after 4 validation cycles
 ```
